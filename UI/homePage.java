@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class homePage {
     homePageFrame homePageFrame = new homePageFrame();
-    
+
 
 }
 
@@ -35,11 +35,13 @@ class homePageFrame extends JFrame {
 
         String[] choices = { "COLD", "MEDIUM", "HOT"};
         temperatureDropdown = new JComboBox<>(choices);
+        add(temperatureDropdown);
 
         //Priority Type
 
         String[] priority = { "FIFO", "Queue" };
         PriorityType = new JComboBox<>(priority);
+        add(PriorityType);
 
 
         JButton loginButton = new JButton("Proceed");
