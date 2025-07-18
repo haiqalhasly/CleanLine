@@ -1,3 +1,4 @@
+package service;
 public class LaundryRequest {
     //code the input from user here
     private String customerName;
@@ -22,7 +23,5 @@ public class LaundryRequest {
     public void setCustomerName(String customerName){this.customerName = customerName;}
     public void setTemperature(float temperature) {this.temperature = temperature;}
     public void setPriorityType(String priorityType) {this.priorityType = priorityType;}
-
-
     
 }

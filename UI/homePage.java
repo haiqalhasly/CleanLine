@@ -5,8 +5,6 @@ import java.awt.*;
 
 public class homePage {
     homePageFrame homePageFrame = new homePageFrame();
-
-
 }
 
 class homePageFrame extends JFrame {
@@ -17,36 +15,48 @@ class homePageFrame extends JFrame {
 
     public homePageFrame() {
 
-
-        //Basic Login Layout
+        // Basic Login Layout
         super("Home Page");
-        setSize(300, 150);
+        setSize(300, 200);
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(new FlowLayout());
 
-        //customer Name field input
-
+        // customer Name field input
         add(new JLabel("Enter your name:"));
         customerNameField = new JTextField(10);
         add(customerNameField);
 
-        // Temperature dropdown 
-
-        String[] choices = { "COLD", "MEDIUM", "HOT"};
+        // Temperature dropdown
+        add(new JLabel("Choose temperature"));
+        String[] choices = { "COLD", "MEDIUM", "HOT" };
         temperatureDropdown = new JComboBox<>(choices);
         add(temperatureDropdown);
 
-        //Priority Type
-
+        // Priority Type
+        add(new JLabel("Choose priority"));
         String[] priority = { "FIFO", "Queue" };
         PriorityType = new JComboBox<>(priority);
         add(PriorityType);
 
+        //Just want to make some space between the button and dropdown 
+        add(new JLabel("                                                                                     "));
+        JButton proceedButton = new JButton("Proceed");
+        add(proceedButton);
 
-        JButton loginButton = new JButton("Proceed");
-        add(loginButton);
+        // Add action listener to go to login function
+        // Using lambda expression
+        proceedButton.addActionListener(e -> toPaymentPage());
 
         setVisible(true);
     }
+    
+
+
+protected void toPaymentPage() {
+    new paymentPageFrame();
+    setVisible(false);
+
+}
+
 }
