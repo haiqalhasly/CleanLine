@@ -13,7 +13,7 @@ class paymentPageFrame extends JFrame {
 
     public paymentPageFrame() {
 
-        // Basic Login Layout
+        // Basic  Layout
         super("Payment Page");
         setSize(300, 200);
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -27,9 +27,19 @@ class paymentPageFrame extends JFrame {
 
         // Just want to make some space between the button and dropdown
         add(new JLabel("                                                                                     "));
-        JButton loginButton = new JButton("PAY");
-        add(loginButton);
+        JButton payButton = new JButton("PAY");
+        add(payButton);
+
+        // Add action listener to go to login function
+        // Using lambda expression
+        payButton.addActionListener(e -> toQueueingPage());
 
         setVisible(true);
+    }
+
+    protected void toQueueingPage() {
+        new LaundryQueueUI();
+        setVisible(false);
+
     }
 }
