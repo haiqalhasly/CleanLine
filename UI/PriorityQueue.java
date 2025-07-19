@@ -1,10 +1,12 @@
 package UI;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class LaundryQueueUI extends JFrame {
-    public LaundryQueueUI() {
-        setTitle("Laundry Queue Viewer");
+public class PriorityQueue extends JFrame {
+
+    public PriorityQueue() {
+        setTitle("Laundry Priority Queue Viewer");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(500, 400);
         setLocationRelativeTo(null); // Center the window
@@ -14,7 +16,7 @@ public class LaundryQueueUI extends JFrame {
         setLayout(new BorderLayout());
 
         // Title
-        JLabel titleLabel = new JLabel("Laundry Queue", SwingConstants.CENTER);
+        JLabel titleLabel = new JLabel("Laundry Priority Queue", SwingConstants.CENTER);
         add(titleLabel, BorderLayout.NORTH);
 
         // Queue container (vertical list)
@@ -35,7 +37,7 @@ public class LaundryQueueUI extends JFrame {
             card.setBorder(BorderFactory.createLineBorder(Color.GRAY, 2));
             card.setBackground(i == 1 ? new Color(255, 204, 204) : new Color(230, 230, 230)); // priority = pink
 
-            JLabel label = new JLabel((i == 1 ? "[PRIORITY] " : "") + "Customer " + i );
+            JLabel label = new JLabel((i == 1 ? "[PRIORITY] " : "") + "Customer " + i);
             label.setHorizontalAlignment(SwingConstants.CENTER);
             card.add(label, BorderLayout.CENTER);
 
@@ -66,12 +68,13 @@ public class LaundryQueueUI extends JFrame {
 
         // Add action listener to go to login function
         // Using lambda expression
-        upgradeButton.addActionListener(e -> toUpgradePaymentPage());
+        upgradeButton.addActionListener(e -> toThankYouPage());
     }
 
-        protected void toUpgradePaymentPage() {
-        new upgradePaymentPageFrame();
+    protected void toThankYouPage() {
+        new thanksPage();
         setVisible(false);
 
     }
+
 }
