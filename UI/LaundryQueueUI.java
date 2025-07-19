@@ -6,7 +6,7 @@ public class LaundryQueueUI extends JFrame {
     public LaundryQueueUI() {
         setTitle("Laundry Queue Viewer");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(400, 500);
+        setSize(500, 400);
         setLocationRelativeTo(null); // Center the window
         setVisible(true);
 
@@ -30,8 +30,8 @@ public class LaundryQueueUI extends JFrame {
         // Dummy cards (just for UI display)
         for (int i = 1; i <= 5; i++) {
             JPanel card = new JPanel(new BorderLayout());
-            card.setPreferredSize(new Dimension(350, 60));
-            card.setMaximumSize(new Dimension(350, 60));
+            card.setPreferredSize(new Dimension(250, 60));
+            card.setMaximumSize(new Dimension(250, 60));
             card.setBorder(BorderFactory.createLineBorder(Color.GRAY, 2));
             card.setBackground(i == 1 ? new Color(255, 204, 204) : new Color(230, 230, 230)); // priority = pink
 
@@ -41,7 +41,22 @@ public class LaundryQueueUI extends JFrame {
 
             queueContainer.add(Box.createVerticalStrut(10)); // spacing
             queueContainer.add(card);
-        }
 
+        }
+        // Bottom panel (progress bar + button)
+        JPanel bottomPanel = new JPanel();
+        bottomPanel.setLayout(new BoxLayout(bottomPanel, BoxLayout.Y_AXIS));
+        bottomPanel.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
+
+        // Progress bar (static for now)
+        JProgressBar progressBar = new JProgressBar(0, 100);
+        progressBar.setValue(60); // example: 60% done
+        progressBar.setStringPainted(true);
+        progressBar.setPreferredSize(new Dimension(300, 20));
+        progressBar.setAlignmentX(Component.CENTER_ALIGNMENT);
+        bottomPanel.add(progressBar);
+        bottomPanel.add(Box.createVerticalStrut(10));
+
+        add(bottomPanel, BorderLayout.SOUTH);
     }
 }
