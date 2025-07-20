@@ -11,7 +11,7 @@ public class main {
         //Creates a new queue system also
         //Passes the request to the queue system
         //Calls the enqueue function
-        
+
         LaundryRequest Request = new LaundryRequest("","");
         QueueSystem queueSystem = new QueueSystem(Request);
         queueSystem.enqueue();
