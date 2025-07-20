@@ -2,7 +2,13 @@ package UI;
 import javax.swing.*;
 import java.awt.*;
 
+
+
 public class LaundryQueueUI extends JFrame {
+
+
+
+    int i = 0;
     public LaundryQueueUI() {
         setTitle("Laundry Queue Viewer");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -48,15 +54,18 @@ public class LaundryQueueUI extends JFrame {
         bottomPanel.setLayout(new BoxLayout(bottomPanel, BoxLayout.Y_AXIS));
         bottomPanel.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
 
+        
+
         // Progress bar (static for now)
         JProgressBar progressBar = new JProgressBar(0, 100);
         progressBar.setValue(60); // example: 60% done
         progressBar.setStringPainted(true);
-        progressBar.setPreferredSize(new Dimension(300, 20));
         progressBar.setAlignmentX(Component.CENTER_ALIGNMENT);
         bottomPanel.add(progressBar);
         bottomPanel.add(Box.createVerticalStrut(10));
+        //iterateProgressBar(progressBar);
 
+        
         // Button
         JButton upgradeButton = new JButton("Upgrade to Priority");
         upgradeButton.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -67,11 +76,25 @@ public class LaundryQueueUI extends JFrame {
         // Add action listener to go to login function
         // Using lambda expression
         upgradeButton.addActionListener(e -> toUpgradePaymentPage());
+        
+    }
+
+        public void iterateProgressBar(JProgressBar progressBar) {
+
+        while (i <= 2000) {
+            progressBar.setValue(i);
+            i += 20;
+            try {
+                Thread.sleep(150);
+            } catch (Exception e) {
+            }
+        }
+
     }
 
         protected void toUpgradePaymentPage() {
         new upgradePaymentPageFrame();
         setVisible(false);
-
     }
+    
 }

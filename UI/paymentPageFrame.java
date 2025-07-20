@@ -1,24 +1,26 @@
 package UI;
 
 import javax.swing.*;
+
+import service.LaundryRequest;
+
 import java.awt.*;
 
-public class paymentPage {
+public class paymentPageFrame extends JFrame {
 
-    
-}
+    public paymentPageFrame(LaundryRequest request) {
 
-class paymentPageFrame extends JFrame {
-
-
-    public paymentPageFrame() {
-
-        // Basic  Layout
+        // Basic Layout
         super("Payment Page");
         setSize(300, 200);
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(new FlowLayout());
+
+        add(new JLabel("Name: " + request.getCustomerName()));
+        System.out.println(request.getCustomerName());
+        add(new JLabel("Temperature: " + request.getTemperature()));
+
 
         // customer Name field input
         add(new JLabel("Total Payment: "));

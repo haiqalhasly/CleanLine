@@ -1,19 +1,15 @@
 package UI;
-
 import javax.swing.*;
 import java.awt.*;
+import service.*;
 
-public class homePage {
-    homePageFrame homePageFrame = new homePageFrame();
-}
+public class homePageFrame extends JFrame {
 
-class homePageFrame extends JFrame {
     // Create ID field variable
     private JTextField customerNameField;
     private JComboBox<String> temperatureDropdown;
-    private JComboBox<String> PriorityType;
 
-    public homePageFrame() {
+    public homePageFrame(LaundryRequest request) {
 
         // Basic Login Layout
         super("Home Page");
@@ -33,12 +29,6 @@ class homePageFrame extends JFrame {
         temperatureDropdown = new JComboBox<>(choices);
         add(temperatureDropdown);
 
-        // Priority Type
-        add(new JLabel("Choose priority"));
-        String[] priority = { "FIFO", "Queue" };
-        PriorityType = new JComboBox<>(priority);
-        add(PriorityType);
-
         //Just want to make some space between the button and dropdown 
         add(new JLabel("                                                                                     "));
         JButton proceedButton = new JButton("Proceed");
@@ -46,15 +36,22 @@ class homePageFrame extends JFrame {
 
         // Add action listener to go to login function
         // Using lambda expression
-        proceedButton.addActionListener(e -> toPaymentPage());
+        proceedButton.addActionListener(e -> {
+            String customerName = customerNameField.getText();
+            request.setCustomerName(customerName);
+            String temp = temperatureDropdown.getSelectedItem().toString();
+            request.setTemperature(temp);
+            toPaymentPage(request);
+        });
 
         setVisible(true);
     }
     
 
 
-protected void toPaymentPage() {
-    new paymentPageFrame();
+protected void toPaymentPage(LaundryRequest request) {
+    new paymentPageFrame(request);
+    
     setVisible(false);
 
 }

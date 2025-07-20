@@ -1,27 +1,36 @@
 package service;
+
+
 public class LaundryRequest {
     //code the input from user here
     private String customerName;
-    private float temperature;
+    private String temperature;
     private String priorityType;
 
+
     //Constructor
-    public LaundryRequest(String customerName, float temperature, String priorityType){
+    public LaundryRequest(String customerName, String temperature, String priorityType){
         
         this.customerName = customerName;
         this.temperature = temperature;
         this.priorityType = priorityType;
     }
 
+    public LaundryRequest(String customerName, String temperature) {
+
+        this.customerName = customerName;
+        this.temperature = temperature;
+    }
+
     //Getters
 
     public String getCustomerName(){ return customerName;}
-    public float getTemperature() {return temperature;}
+    public String getTemperature() {return temperature;}
     public String getPriorityType() {return priorityType;}
     
     //Setters
     public void setCustomerName(String customerName){this.customerName = customerName;}
-    public void setTemperature(float temperature) {this.temperature = temperature;}
+    public void setTemperature(String temperature) {this.temperature = temperature;}
     public void setPriorityType(String priorityType) {this.priorityType = priorityType;}
     
 }
