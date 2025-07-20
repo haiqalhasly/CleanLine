@@ -3,6 +3,9 @@ import javax.swing.*;
 import java.awt.*;
 import service.*;
 
+// This class is used to display the home page
+// This will be the first page that the user will see
+// Just enter their name and temperature
 public class homePageFrame extends JFrame {
 
     // Create ID field variable
@@ -47,6 +50,8 @@ public class homePageFrame extends JFrame {
         setVisible(true);
     }
     
+    //After clicking proceed button, go to payment page
+    //still used LaundryRequest parameter to pass around customer info
 
 
 protected void toPaymentPage(LaundryRequest request) {

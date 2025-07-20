@@ -4,6 +4,8 @@ import java.awt.*;
 import javax.swing.*;
 import service.LaundryRequest;
 
+//This class is used to generate the cards
+//It will be used to display the queue
 public class generateCard extends JPanel {
 
     public static void generateCard(LaundryRequest request, JPanel queueContainer) {
@@ -21,5 +23,5 @@ public class generateCard extends JPanel {
 
         }
     }
-    
+
 }

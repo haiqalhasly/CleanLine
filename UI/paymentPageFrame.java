@@ -6,6 +6,10 @@ import service.LaundryRequest;
 
 import java.awt.*;
 
+//This class is used to display the payment page
+//This will be the second page that the user will see
+//Just for the flow
+
 public class paymentPageFrame extends JFrame {
 
     public paymentPageFrame(LaundryRequest request) {
@@ -37,6 +41,9 @@ public class paymentPageFrame extends JFrame {
 
         setVisible(true);
     }
+
+    //This method is used to go to the queueing page
+    //Still passing LaundryRequest parameter
 
     protected void toQueueingPage(LaundryRequest request) {
         new LaundryQueueUI(request);

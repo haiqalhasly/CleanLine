@@ -3,6 +3,8 @@ package UI;
 import javax.swing.*;
 import java.awt.*;
 
+
+//Tak buat apa2 lagi
 public class PriorityQueue extends JFrame {
 
     public PriorityQueue() {
