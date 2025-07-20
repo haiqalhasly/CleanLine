@@ -1,6 +1,8 @@
 package UI;
 import javax.swing.*;
+import service.LaundryRequest;
 import java.awt.*;
+import UI.*;
 
 
 
@@ -9,7 +11,7 @@ public class LaundryQueueUI extends JFrame {
 
 
     int i = 0;
-    public LaundryQueueUI() {
+    public LaundryQueueUI(LaundryRequest request) {
         setTitle("Laundry Queue Viewer");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(500, 400);
@@ -34,21 +36,7 @@ public class LaundryQueueUI extends JFrame {
         add(scrollPane, BorderLayout.CENTER);
 
         // Dummy cards (just for UI display)
-        for (int i = 1; i <= 5; i++) {
-            JPanel card = new JPanel(new BorderLayout());
-            card.setPreferredSize(new Dimension(250, 60));
-            card.setMaximumSize(new Dimension(250, 60));
-            card.setBorder(BorderFactory.createLineBorder(Color.GRAY, 2));
-            card.setBackground(i == 1 ? new Color(255, 204, 204) : new Color(230, 230, 230)); // priority = pink
-
-            JLabel label = new JLabel((i == 1 ? "[PRIORITY] " : "") + "Customer " + i );
-            label.setHorizontalAlignment(SwingConstants.CENTER);
-            card.add(label, BorderLayout.CENTER);
-
-            queueContainer.add(Box.createVerticalStrut(10)); // spacing
-            queueContainer.add(card);
-
-        }
+        generateCard.generateCard(request, queueContainer);
         // Bottom panel (progress bar + button)
         JPanel bottomPanel = new JPanel();
         bottomPanel.setLayout(new BoxLayout(bottomPanel, BoxLayout.Y_AXIS));

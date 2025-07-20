@@ -21,7 +21,6 @@ public class paymentPageFrame extends JFrame {
         System.out.println(request.getCustomerName());
         add(new JLabel("Temperature: " + request.getTemperature()));
 
-
         // customer Name field input
         add(new JLabel("Total Payment: "));
 
@@ -34,13 +33,13 @@ public class paymentPageFrame extends JFrame {
 
         // Add action listener to go to login function
         // Using lambda expression
-        payButton.addActionListener(e -> toQueueingPage());
+        payButton.addActionListener(e -> toQueueingPage(request));
 
         setVisible(true);
     }
 
-    protected void toQueueingPage() {
-        new LaundryQueueUI();
+    protected void toQueueingPage(LaundryRequest request) {
+        new LaundryQueueUI(request);
         setVisible(false);
 
     }

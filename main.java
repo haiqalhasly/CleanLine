@@ -8,6 +8,8 @@ public class main {
     public static void main(String[] args) {
 
         LaundryRequest Request = new LaundryRequest("","");
+        QueueSystem queueSystem = new QueueSystem(Request);
+        queueSystem.enqueue();
 
         //Ensures GUI swings created and updated
         SwingUtilities.invokeLater(() -> new homePageFrame(Request));
