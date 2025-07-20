@@ -2,10 +2,8 @@ package UI;
 import javax.swing.*;
 import service.LaundryRequest;
 import java.awt.*;
-import UI.*;
 
-
-
+//This class is used to display the queue
 public class LaundryQueueUI extends JFrame {
 
 
@@ -37,6 +35,7 @@ public class LaundryQueueUI extends JFrame {
 
         // Dummy cards (just for UI display)
         generateCard.generateCard(request, queueContainer);
+
         // Bottom panel (progress bar + button)
         JPanel bottomPanel = new JPanel();
         bottomPanel.setLayout(new BoxLayout(bottomPanel, BoxLayout.Y_AXIS));
@@ -66,6 +65,11 @@ public class LaundryQueueUI extends JFrame {
         upgradeButton.addActionListener(e -> toUpgradePaymentPage());
         
     }
+
+    //This method is used to display the progress bar
+    //But, it is not working
+    //When the function is called the whole UI dissapear
+    //Maybe it something about the thread ;/
 
         public void iterateProgressBar(JProgressBar progressBar) {
 

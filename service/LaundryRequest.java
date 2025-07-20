@@ -1,7 +1,12 @@
 package service;
 
+//This class contains the information for the laundry request
+//Customer name, temperature, and priority
+//It will be passed to the queue system
+//This is the main service class for every customer's request
 
 public class LaundryRequest {
+
     //code the input from user here
     private String customerName;
     private String temperature;
@@ -16,6 +21,7 @@ public class LaundryRequest {
         this.priorityType = priorityType;
     }
 
+    //Other constructor if only want these two parameters
     public LaundryRequest(String customerName, String temperature) {
 
         this.customerName = customerName;

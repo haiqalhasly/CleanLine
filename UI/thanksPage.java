@@ -2,6 +2,9 @@ package UI;
 import javax.swing.*;
 import java.awt.*;
 
+//This is the last page that the user will see
+//Just for the flow
+
 public class thanksPage extends JFrame {
 
     public thanksPage() {
